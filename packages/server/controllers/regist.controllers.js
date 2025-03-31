@@ -14,8 +14,9 @@ const regist = async (req, res) => {
     }
     const newUser = new User(req.body);
     await newUser.save();
-    res.status(200).json({
-      message: "success",
+    res.status(201).json({
+      message: "신규 사용자 등록 성공",
+      data: req.body
     });
   } catch (e) {
     console.log(e);
