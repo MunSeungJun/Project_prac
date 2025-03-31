@@ -5,7 +5,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client:dev": "npm run dev --workspaces=client",
-    "client:install": "npm install --workspaces=client",
     "client:build": "npm run build --workspaces=client",
     "server:dev": "npm start --workspaces=server"
   },
