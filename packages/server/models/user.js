@@ -12,11 +12,12 @@ const userSchema = mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   phone: {
-    type: Number,
+    type: String,
     length: 11,
-  }
+  },
 });
 
 const User = mongoose.model("user", userSchema);
