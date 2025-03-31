@@ -1,13 +1,11 @@
 import express from 'express'
+import regist from '../controllers/regist.controllers.js'
 const router = express.Router()
 
-router.get('/users', (req, res) => {
+router.get('/', (req, res) => {
     res.send('user')
 })
-router.post('/users', (req, res) => {
-    res.status(200).json({
-        message:'success'
-    })
-})
+router.post('/', regist)
+
 
 export default router;
