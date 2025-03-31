@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './routes/Home';
+import SignUp from './routes/SignUp';
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+    </>
+  );
+};
 
-export default App
+export default App;
