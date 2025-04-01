@@ -1,0 +1,58 @@
+.active {
+    border-bottom: 1px solid black;
+}
+.top_bar {
+    background-color: black;
+    padding: .5rem;
+}
+.top_bar p {
+    text-align: center;
+    color: white;
+}
+.gnb_wrap {
+    padding: 2rem;
+}
+.gnb_title h2{
+    font-size: 2.5rem;
+    text-transform: capitalize;
+}
+.gnb_content_link_wrap{
+    margin-right: 10rem;
+}
+.gnb_content_link_wrap a {
+    color: black;
+    font-size: 1.25rem;
+}
+.gnb_content_search_box form {
+    position: relative;
+}
+.gnb_content_search_box form input{
+    width: 20rem;
+    border: none;
+    outline: none;
+    background-color: #cecece;
+    border-radius: 1rem;
+    text-indent: .5rem;
+    padding: .5rem;
+    
+}
+.gnb_content_search_box_button {
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    right: 3%;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.gnb_content_button {
+    background: none;
+    color: black;
+    border: 0;
+    outline: none;
+    text-align: center;
+}
+.gnb_content_button p {
+    font-size: 0.75rem;
+}
