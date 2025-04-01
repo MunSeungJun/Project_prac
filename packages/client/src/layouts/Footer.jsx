@@ -20,7 +20,7 @@ const Footer = () => {
                     width="80"
                     height="80"
                     fill="currentColor"
-                    class="bi bi-qr-code"
+                    className="bi bi-qr-code"
                     viewBox="0 0 16 16"
                   >
                     <path d="M2 2h2v2H2z" />
