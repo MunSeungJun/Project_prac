@@ -17,11 +17,14 @@
     "packages/client"
   ],
   "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.13.0",
     "nodemon": "^3.1.9",
+    "react-bootstrap": "^2.10.9",
     "react-router-dom": "^7.4.1"
   }
 }
