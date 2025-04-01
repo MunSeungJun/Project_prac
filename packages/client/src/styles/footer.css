@@ -1,0 +1,28 @@
+footer {
+    background-color: black;
+    color: white;
+}
+footer a{
+    color: white;
+}
+.fnb_wrap{
+    padding: 1rem 2rem;
+}
+.fnb_content_aside3{
+    width: 25%;
+    margin: 0 auto;
+}
+.fnb_content_aside3_button{
+    padding: 0.25rem;
+    border: 1px solid white;
+    border-radius: 0.25rem;
+}
+.fnb_content_aside3_button_text p{
+    font-size: .5rem;
+}
+.fnb_content_aside3_button_text span{
+    font-size: 0.75rem;
+}
+.copyright {
+    text-align: center;
+}
