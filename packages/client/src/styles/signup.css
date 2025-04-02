@@ -1,0 +1,29 @@
+.signup_box_text h2{
+    margin-bottom: 1.25rem;
+    font-size: 2.5rem;
+}
+.signup_box_text p{
+    font-size: 1.25rem;
+}
+
+.signup_box_content_form_input{
+    border: none;
+    border-radius: 0;
+    outline: none;
+    background: none;
+    border-bottom: 2px solid #cecece;
+    font-size: 1.25rem;
+}
+.signup_box_content_form_input:focus{
+    background: none;
+}
+.signup_box_content_form_button_wrap a{
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #cecece;
+    border-radius: 0.375rem;
+    color: black;
+}
+.signup_box_content_form_button{
+    width: 75%;
+    text-align: center;
+}
