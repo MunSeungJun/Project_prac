@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import rootreducer from './rootreducer';
+import bannerreducer from './slices/bannerslice';
+import signupreducer from './slices/signupslice'
 
 const store = configureStore({
-  reducer: rootreducer
+  reducer: {
+    banner : bannerreducer,
+    signup : signupreducer
+  }
 });
 
 export default store;
