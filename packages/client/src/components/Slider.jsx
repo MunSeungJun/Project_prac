@@ -5,7 +5,7 @@ function Slider({indicators, datas}) {
     <Carousel indicators={indicators}>
       {
         datas.map(v => (
-          <Carousel.Item >
+          <Carousel.Item key={v.id} >
             <img src={`${v.uri}`} alt="" className='img-fluid' />
           </Carousel.Item>  
         ))
