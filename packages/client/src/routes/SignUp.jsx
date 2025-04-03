@@ -1,18 +1,22 @@
 import { useState } from 'react';
 import { Container, Button, Row, Col, Form, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { updateSignupData, resetSignupData } from '../redux/slices/signupslice';
 import axios from 'axios';
 import '../styles/signup.css';
 
 function SingUp() {
   const [validated, setValidated] = useState(false);
-  const formData = useSelector(state => state.signup.formData);
-  const dispatch = useDispatch();
-
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    passwd: '',
+    phone: '',
+  });
   const handleChange = event => {
-    dispatch(updateSignupData({ name: event.target.name, value: event.target.value }));
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = event => {
@@ -21,17 +25,21 @@ function SingUp() {
       event.preventDefault();
       event.stopPropagation();
     }
-
     setValidated(true);
-    axios.post(
-      'http://localhost:3000/users', formData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    dispatch(resetSignupData());
+    axios
+      .post('http://localhost:3000/users', formData)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    setFormData({
+      username: '',
+      email: '',
+      passwd: '',
+      phone: '',
+    });
   };
 
   return (
@@ -52,7 +60,7 @@ function SingUp() {
                 noValidate
                 validated={validated}
                 onSubmit={handleSubmit}
-                autoComplete='off'
+                autoComplete="off"
               >
                 <Form.Group className="mb-4" controlId="validationCustomUsername">
                   <Form.Control
@@ -67,19 +75,19 @@ function SingUp() {
                   <Form.Control.Feedback type="invalid">Looks good!</Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-4" controlId="validationCustomEmail">
-                    <Form.Control
-                      className="signup_box_content_form_input"
-                      type="text"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Email"
-                      aria-describedby="inputGroupPrepend"
-                      required
-                    />
-                    <Form.Control.Feedback type="invalid">
-                      Please choose a email.
-                    </Form.Control.Feedback>
+                  <Form.Control
+                    className="signup_box_content_form_input"
+                    type="text"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please choose a email.
+                  </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-4" controlId="validationCustomPasswd">
                   <Form.Control
