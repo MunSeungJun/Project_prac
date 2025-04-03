@@ -1,3 +1,6 @@
+:root{
+    --primary-color: rgb(219,68,68)
+}
 p{
     margin: 0;
 }
