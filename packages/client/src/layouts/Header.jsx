@@ -1,9 +1,12 @@
 import React from 'react';
 import { Form, Container } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux'
+
 import '../styles/header.css';
 
 const Header = () => {
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
   return (
     <header>
       <div className="top_bar">
@@ -20,6 +23,7 @@ const Header = () => {
               <NavLink to="contact">Contact</NavLink>
               <NavLink to="about">About</NavLink>
               <NavLink to="signup">Sign Up</NavLink>
+              {isAuthenticated ? '' : <NavLink to="signin">Sign In</NavLink> }
             </nav>
             <div className="gnb_content_search_box">
               <Form>
@@ -40,7 +44,7 @@ const Header = () => {
               </Form>
             </div>
             <div className="gnb_content_button_wrap d-flex gap-3">
-              <Link to='user' className="gnb_content_button">
+              <Link to={isAuthenticated ? 'user' : 'signin'} className="gnb_content_button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -53,7 +57,7 @@ const Header = () => {
                 </svg>
                 <p>마이쇼핑</p>
               </Link>
-              <Link to='cart' className="gnb_content_button">
+              <Link to={isAuthenticated ? 'cart' : 'signin'} className="gnb_content_button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
