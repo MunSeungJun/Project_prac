@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Container, Button, Row, Col, Form, InputGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/signup.css';
 
 function SingUp() {
+  const navigate = useNavigate()
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
     username: '',
@@ -19,27 +20,28 @@ function SingUp() {
     });
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async(event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
+    event.preventDefault();
+    event.stopPropagation();
     setValidated(true);
-    axios
-      .post('http://localhost:3000/users', formData)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    try {
+      const response = axios.post('http://localhost:3000/users/regist', formData)
+      console.log(await response)
+    } catch (e) {
+      console.log(e)
+    }
     setFormData({
       username: '',
       email: '',
       passwd: '',
       phone: '',
     });
+    navigate('/signin')
   };
 
   return (
