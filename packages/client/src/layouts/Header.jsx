@@ -2,11 +2,13 @@ import React from 'react';
 import { Form, Container } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux'
+import LogoutButton from '../components/LogoutButton';
 
 import '../styles/header.css';
 
 const Header = () => {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+ 
   return (
     <header>
       <div className="top_bar">
@@ -23,7 +25,7 @@ const Header = () => {
               <NavLink to="contact">Contact</NavLink>
               <NavLink to="about">About</NavLink>
               <NavLink to="signup">Sign Up</NavLink>
-              {isAuthenticated ? '' : <NavLink to="signin">Sign In</NavLink> }
+              {isAuthenticated ? <LogoutButton/> : <NavLink to="signin">Sign In</NavLink> }
             </nav>
             <div className="gnb_content_search_box">
               <Form>
