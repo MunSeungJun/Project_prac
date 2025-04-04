@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { checkAuth } from '../redux/slices/authslice';
+import { checkAuth } from './redux/slices/authslice';
 import { useDispatch } from 'react-redux';
 import Index from './routes/Index';
 import Home from './routes/Home';
