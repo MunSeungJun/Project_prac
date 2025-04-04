@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container, Button, Row, Col, Form, InputGroup } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { setUser } from '../api/authApi';
 import '../styles/signup.css';
 
 function SingUp() {
@@ -29,12 +29,7 @@ function SingUp() {
     event.preventDefault();
     event.stopPropagation();
     setValidated(true);
-    try {
-      const response = axios.post('http://localhost:3000/users/regist', formData)
-      console.log(await response)
-    } catch (e) {
-      console.log(e)
-    }
+    setUser(formData)
     setFormData({
       username: '',
       email: '',

@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { Container, Button, Row, Col, Form, InputGroup } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { setLogin } from '../api/authApi'; 
 import { useDispatch } from 'react-redux';
-import { login } from '../redux/slices/authslice';
-import axios from 'axios';
 import '../styles/signin.css';
 
 function SignIn() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -24,12 +23,7 @@ function SignIn() {
   const handleSubmit = async event => {
     event.preventDefault();
     event.stopPropagation();
-    try {
-      axios.post('http://localhost:3000/users/login', formData);
-      dispatch(login());
-    } catch (e) {
-      console.log(e);
-    }
+    setLogin(formData, dispatch)
     setFormData({
       email: '',
       passwd: '',
