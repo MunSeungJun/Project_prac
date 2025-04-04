@@ -1,5 +1,6 @@
 import User from "../models/user.js";
-import bcrypt from 'bcrypt'
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const regist = async (req, res) => {
   try {
@@ -16,7 +17,7 @@ const regist = async (req, res) => {
       username,
       passwd,
       phone,
-      email
+      email,
     });
     await newUser.save();
     res.status(201).json({
@@ -37,12 +38,18 @@ const login = async (req, res) => {
         message: "이메일 또는 비밀번호를 확인해주세요",
       });
     }
-    const isMatch  = await bcrypt.compare(passwd, user.passwd);
+    const isMatch = await bcrypt.compare(passwd, user.passwd);
     if (!isMatch) {
       return res.status(400).json({
         message: "비밀번호를 확인해주세요",
       });
     }
+    const SECRET_KEY = process.env.SECRET_KEY;
+    const token = jwt.sign({ email }, SECRET_KEY, { expiresIn: "1h" });
+    res.cookie("token", token, {
+      httpOnly: true,
+      sameSite: "Lax"
+    });
     res.status(200).json({
       message: "로그인 성공",
       data: user.username,
@@ -52,4 +59,24 @@ const login = async (req, res) => {
   }
 };
 
-export { regist, login };
+const logout = async (req, res) => {
+  res.clearCookie("token");
+  res.json({
+    message: "로그아웃 완료",
+  });
+};
+
+const check = async (req, res) => {
+  const token = req.cookies.token;
+  if (!token) return res.status(401).json({ message: "로그인 필요" });
+
+  try {
+    const SECRET_KEY = process.env.SECRET_KEY;
+    jwt.verify(token, SECRET_KEY);
+    res.json({ loggedIn: true });
+  } catch (error) {
+    res.status(403).json({ message: "유효하지 않은 토큰" });
+  }
+};
+
+export { regist, login, logout, check };
