@@ -2,8 +2,7 @@ import React from 'react';
 import { Form, Container } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux'
-import LogoutButton from '../components/LogoutButton';
-
+import LogoutButton from '../features/auth/components/LogoutButton';
 import '../styles/header.css';
 
 const Header = () => {

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { login, logout } from '../redux/slices/authslice';
+import { login, logout } from './authslice';
 
 export const setUser = async formData => {
   try {

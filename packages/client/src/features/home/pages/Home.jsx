@@ -3,7 +3,7 @@ import { Container,Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import { useSelector} from 'react-redux'
 import Slider from '../components/Slider';
-import '../styles/Home.css'
+import '../../../styles/home.css'
 
 const Home = () => {
   const banners = useSelector((state) => state.banner.banners)

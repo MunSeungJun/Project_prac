@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Container, Button, Row, Col, Form, InputGroup } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { setLogin } from '../api/authApi'; 
 import { useDispatch } from 'react-redux';
-import '../styles/signin.css';
+import { setLogin } from '../authApi'; 
+import '../../../styles/signin.css';
 
 function SignIn() {
   const dispatch = useDispatch()

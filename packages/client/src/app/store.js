@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import bannerreducer from './slices/bannerslice';
-import authreducer  from './slices/authslice'
+import bannerreducer from '../features/home/homeslice';
+import authreducer  from '../features/auth/authslice'
 
 
 const store = configureStore({

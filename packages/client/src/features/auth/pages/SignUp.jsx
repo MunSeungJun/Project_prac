@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Container, Button, Row, Col, Form, InputGroup } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { setUser } from '../api/authApi';
-import '../styles/signup.css';
+import { setUser } from '../authApi';
+import '../../../styles/signup.css';
 
 function SingUp() {
   const navigate = useNavigate()

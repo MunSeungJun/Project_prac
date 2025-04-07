@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { checkAuth } from './redux/slices/authslice';
 import { useDispatch } from 'react-redux';
-import Index from './routes/Index';
-import Home from './routes/Home';
-import SignUp from './routes/SignUp';
-import SignIn from './routes/SignIn';
+import { checkAuth } from '../features/auth/authslice';
+import Index from '../layouts/Index';
+import Home from '../features/home/pages/Home';
+import SignUp from '../features/auth/pages/SignUp';
+import SignIn from '../features/auth/pages/SignIn';
 
 const App = () => {
   const dispatch = useDispatch();
