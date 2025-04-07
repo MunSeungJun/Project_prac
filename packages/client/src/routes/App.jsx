@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { checkAuth } from '../features/auth/slices/authslice';
+import { getSale } from '../features/home/slices/homeSaleProductsslice';
 import Index from '../layouts/Index';
 import Home from '../features/home/pages/Home';
 import SignUp from '../features/auth/pages/SignUp';
@@ -11,6 +12,9 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(checkAuth());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(getSale());
   }, [dispatch]);
 
   return (
