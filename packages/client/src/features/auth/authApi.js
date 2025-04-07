@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { login, logout } from './authslice';
+import { login, logout } from './slices/authslice';
 
 export const setUser = async formData => {
   try {
@@ -36,3 +36,4 @@ export const setAuth = async () => {
   });
   return response.data.loggedIn;
 };
+
