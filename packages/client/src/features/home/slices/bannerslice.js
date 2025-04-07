@@ -14,13 +14,17 @@ const initialState = {
       id: 3,
       uri: 'https://shop-phinf.pstatic.net/20250327_45/1743061593987NeE0J_PNG/EB89B4EC87BCED9591_ECB59CEC8381EB8BA8m_1152x180.png?type=a2304_jpg',
     },
-  ],
+  ]
 };
+
+
 
 const bannerslice = createSlice({
   name: 'banner',
   initialState: initialState,
   reducers: [{}],
 });
+
+
 
 export default bannerslice.reducer;

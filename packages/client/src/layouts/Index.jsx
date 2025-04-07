@@ -1,15 +1,20 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.min.css';
+import { Container } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 const Index = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <Container>
+        <main>
+          <Outlet />
+        </main>
+      </Container>
       <Footer />
     </>
   );
