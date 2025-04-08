@@ -39,6 +39,14 @@ const productSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  averageRating: {
+    type: Number,
+    default: 0
+  },
+  ratingsCount: {
+    type: Number,
+    default: 0
+  }
 });
 
 const Product = mongoose.model("Product", productSchema);
