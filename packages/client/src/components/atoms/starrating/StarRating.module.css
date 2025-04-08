@@ -1,0 +1,9 @@
+.star {
+    font-size: 1.25rem;
+}
+.full {
+    color: gold;
+}
+.empty {
+    color: lightgray;
+}
