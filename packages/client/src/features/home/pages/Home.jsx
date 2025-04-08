@@ -1,55 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import Slider from '../components/Slider';
-import HomeSaleProducts from '../components/HomeSaleProducts';
+import { useSelector, useDispatch } from 'react-redux';
+import Slider from '../components/slider/Slider';
+import HomeSale from '../components/homesale/HomeSale';
+import Category from '../components/category/category';
+import { getSale } from '../slices/homeSaleProductsslice';
 import '../../../styles/home.css';
 
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getSale());
+  }, [dispatch]);
+
   const banners = useSelector(state => state.banner.banners);
 
   return (
     <>
-      <section>
-        <Row>
-          <div className="category col-4">
-            <ul>
-              <li>
-                <Link>Woman's Fashion</Link>
-              </li>
-              <li>
-                <Link>Mens's Fashion</Link>
-              </li>
-              <li>
-                <Link>Electronics</Link>
-              </li>
-              <li>
-                <Link>Home & Lifestyle</Link>
-              </li>
-              <li>
-                <Link>Medicine</Link>
-              </li>
-              <li>
-                <Link>Sports & Outdoor</Link>
-              </li>
-              <li>
-                <Link>Baby's & Toys</Link>
-              </li>
-              <li>
-                <Link>Groceries & Pets</Link>
-              </li>
-              <li>
-                <Link>Health & Beauty</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="col-8">
+      <Row>
+        <Col md={3}>
+          <section>
+            <Category />
+          </section>
+        </Col>
+        <Col md={9}>
+          <section className='h-100'>
             <Slider indicators={false} datas={banners} />
-          </div>
-        </Row>
+          </section>
+        </Col>
+      </Row>
+      <section>
+        <HomeSale />
       </section>
-      <HomeSaleProducts/>
     </>
   );
 };
