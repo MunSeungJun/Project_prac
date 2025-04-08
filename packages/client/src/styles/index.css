@@ -12,4 +12,5 @@ hr{
 }
 ul, li{
     list-style: none;
+    margin: 0;
 }
