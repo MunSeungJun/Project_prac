@@ -1,0 +1,32 @@
+.homeSale_wrap{
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+.homeSale_header{
+    font-weight: bold;
+}
+.homeSale_header span{
+    color: rgb(225,39,5);
+}
+.homeSale_content{
+    margin-top: 1rem;
+}
+.sale_badge{
+    color: rgb(225,39,5);
+    background: none;
+    border: 1px solid rgb(225,39,5);
+    border-radius: .5rem;
+    width: 40%;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: .5rem;
+}
+.homeSale_item_info{
+    margin-top: .5rem;
+}
+.homeSale_item_info h3{
+    font-size: 1.25rem;
+}
+.homeSale_item_price{
+    color: rgb(225,39,5);
+}

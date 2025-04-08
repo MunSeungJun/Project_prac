@@ -7,7 +7,7 @@ import authreducer  from '../features/auth/slices/authslice'
 const store = configureStore({
   reducer: {
     banner : bannerreducer,
-    homeSaleProducts: homeSaleProductsreducer,
+    homeSale: homeSaleProductsreducer,
     auth : authreducer
   }
 });
