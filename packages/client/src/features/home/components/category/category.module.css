@@ -1,0 +1,10 @@
+.snb_wrap{
+    border-right: 1px solid #cecece;
+}
+.category_list{
+    padding: 1.5rem;
+}
+.category_list li a{
+    color: black;
+    font-size: 1.25rem;
+}
